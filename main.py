@@ -6,11 +6,11 @@ opcao = 0
 
 while opcao != 3:
 
-    print("################################################")
+    print("\n################################################")
     print("MENU")
     print("1 - Digite as datas")
     print("2 - Digite o nome de um arquivo")
-    print("3 - Sair")
+    print("3 - Sair\n")
     
     opcao = input("Digite um número: ")
 

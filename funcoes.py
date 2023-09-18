@@ -1,11 +1,5 @@
-import numpy as np
 import pandas as pd
-
 from datetime import datetime
-import fileinput
-import locale
-
-locale.setlocale(locale.LC_ALL, 'pt_BR.utf8')
 
 def calculo_digita(data):
     """_summary_
@@ -30,7 +24,7 @@ def calculo_digita(data):
 def calculo_arquivo(file_name):
 
     try:
-        dados = pd.read_csv(file_name, sep=" - ", header=None, names=["Coluna1", "Coluna2"])
+        dados = pd.read_csv(file_name, sep=" - ", header=None, names=["Coluna1", "Coluna2"], engine='python')
 
         if not dados.empty:
             primeira_data = dados.iloc[0, 0]
