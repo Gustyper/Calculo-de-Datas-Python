@@ -30,14 +30,14 @@ def calculo_digita(data):
 def calculo_arquivo(file_name):
 
     try:
-        dados = pd.read_csv(file_name, sep=" ", header=None, names=["Coluna1", "Coluna2"])
+        dados = pd.read_csv(file_name, sep=" - ", header=None, names=["Coluna1", "Coluna2"])
 
         if not dados.empty:
             primeira_data = dados.iloc[0, 0]
             segunda_data = dados.iloc[0, 1]
            
-            primeira_data = datetime.strptime(primeira_data, '%Y/%m/%d')
-            segunda_data = datetime.strptime(segunda_data, '%Y/%m/%d')
+            primeira_data = datetime.strptime(primeira_data, '%d de %B de %Y')
+            segunda_data = datetime.strptime(segunda_data, '%d de %B de %Y')
 
             quantidade_dias = abs((segunda_data - primeira_data).days)
 
