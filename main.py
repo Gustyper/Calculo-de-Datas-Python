@@ -21,10 +21,10 @@ while opcao != 3:
         continue
 
     if opcao == 1:
-        datas = input("Digite as datas: ")
+        datas = input("Digite as datas, elas devem estar no formato 'xx de xxxxxx de xxxx - xx de xxxxxx de xxxx' : ")
         funcoes.calculo_digita(datas)
     elif opcao == 2:
-        nome_arquivo = input("Digite o nome do arquivo: ")
+        nome_arquivo = input("Digite o nome do arquivo, o arquivo deve conter as datas no formato 'xx de xxxxxx de xxxx - xx de xxxxxx de xxxx' : ")
         funcoes.calculo_arquivo(nome_arquivo)
     elif opcao != 3:
         print("-------------------------------")
