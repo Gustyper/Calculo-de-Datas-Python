@@ -22,7 +22,18 @@ def calculo_digita(data):
 
 
 def calculo_arquivo(file_name):
+    """Função que calcula o número de dias entre datas dentro de um arquivo texto.
 
+    Parameters
+    ----------
+    file_name : string
+        Nome do arquivo recebido no input.
+
+    Returns 
+    -------
+    int
+        Retorna a quantidade de dias entre as datas.
+    """
     try:
         dados = pd.read_csv(file_name, sep=" - ", header=None, names=["Coluna1", "Coluna2"], engine='python')
 
