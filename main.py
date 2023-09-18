@@ -11,9 +11,11 @@ while input != 3:
     input = input()
 
     if input == 1:
-        funcoes.calculo_digita()
+        datas = input()
+        funcoes.calculo_digita(datas)
     elif input == 2:
-        funcoes.calculo_arquivo()
+        datas = input()
+        funcoes.calculo_arquivo(datas)
     elif input != 3:
         print("Digite um numero válido")
 
