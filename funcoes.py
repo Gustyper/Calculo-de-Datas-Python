@@ -26,9 +26,8 @@ def calculo_digita(data):
 
     print((data2 - data1).days)
 
-def calculo_arquivo():
-    
-    file_name = input("Digite o nome do arquivo: ")
+
+def calculo_arquivo(file_name):
 
     try:
         dados = pd.read_csv(file_name, sep=" ", header=None, names=["Coluna1", "Coluna2"])
@@ -36,7 +35,13 @@ def calculo_arquivo():
         if not dados.empty:
             primeira_data = dados.iloc[0, 0]
             segunda_data = dados.iloc[0, 1]
-            print(primeira_data,segunda_data)
+           
+            primeira_data = datetime.strptime(primeira_data, '%Y/%m/%d')
+            segunda_data = datetime.strptime(segunda_data, '%Y/%m/%d')
+
+            quantidade_dias = abs((segunda_data - primeira_data).days)
+
+            print(quantidade_dias)
         else:
             print("O arquivo está vazio!")
 
@@ -44,5 +49,3 @@ def calculo_arquivo():
         print(f"Arquivo {file_name} não encontrado.")
     except pd.errors.EmptyDataError:
         print("O arquivo está vazio ou não contém dados válidos.")
-
-calculo_arquivo()
