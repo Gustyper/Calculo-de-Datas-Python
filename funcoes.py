@@ -77,6 +77,8 @@ def calculo_arquivo(file_name):
         print(f"Arquivo {file_name} não encontrado.")
     except pd.errors.EmptyDataError:
         print("O arquivo está vazio ou não contém dados válidos.")
+    except ValueError:
+        print("O arquivo está vazio ou não contém dados válidos.")
 
 if __name__ == "__main__":
     doctest.testmod(verbose=True)
