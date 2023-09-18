@@ -14,7 +14,6 @@ while opcao != 3:
 
     try:
         opcao = int(opcao)
-        print(opcao)
     except:
         print("Digite un número inteiro")
         continue
