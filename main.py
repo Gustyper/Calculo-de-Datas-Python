@@ -1,21 +1,32 @@
 import funcoes
 
-input = 0
+opcao = 0
 
-while input != 3:
+while opcao != 3:
+
+    print("################################################")
     print("MENU")
     print("1 - Digite as datas")
     print("2 - Digite o nome de um arquivo")
     print("3 - Sair")
     
-    input = input()
+    opcao = input("Digite um número: ")
 
-    if input == 1:
-        datas = input()
+    try:
+        opcao = int(opcao)
+        print(opcao)
+    except:
+        print("Digite un número inteiro")
+        continue
+
+    if opcao == 1:
+        datas = input("Digite as datas: ")
         funcoes.calculo_digita(datas)
-    elif input == 2:
-        datas = input()
-        funcoes.calculo_arquivo(datas)
-    elif input != 3:
+    elif opcao == 2:
+        nome_arquivo = input("Digite o nome do arquivo: ")
+        funcoes.calculo_arquivo(nome_arquivo)
+    elif opcao != 3:
+        print("-------------------------------")
         print("Digite um numero válido")
 
+print("Saindo do programa")
