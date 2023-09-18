@@ -51,6 +51,11 @@ def calculo_arquivo(file_name):
     -------
     int
         Retorna a quantidade de dias entre as datas.
+
+    Teste 1
+    >>> calculo_arquivo("teste.txt")
+    38
+
     """
     try:
         dados = pd.read_csv(file_name, sep=" - ", header=None, names=["Coluna1", "Coluna2"], engine='python')
