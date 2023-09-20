@@ -20,11 +20,11 @@ def calculo_digita(data):
 
     Teste 1
     >>> calculo_digita("23 de Agosto de 2023 - 18 de Setembro de 2023")
-    25
+    O número de dias entre essas datas é:  25
 
     Teste 2
     >>> calculo_digita("18 de Setembro de 2023 - 23 de Agosto de 2023")
-    25
+    O número de dias entre essas datas é:  25
     """
     
     #Separa as datas
@@ -38,7 +38,7 @@ def calculo_digita(data):
         #Como é pedido o dia entre, o menos um remove o dia pertencente as datas passadas no input que estava sendo incluido.
         numero_dias = abs((data2 - data1).days) -1
 
-        print("\nO número de dias entre essas datas é: ", numero_dias)
+        print("O número de dias entre essas datas é: ", numero_dias)
 
     except ValueError:
         print("\n\n\n\n", "#"*10, "ERRO!", "#"*10, )
