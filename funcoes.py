@@ -29,15 +29,20 @@ def calculo_digita(data):
     
     #Separa as datas
     array = data.split(" - ")
+    
+    try:
+        #Formata em datetime
+        data1 = datetime.strptime(array[0], "%d de %B de %Y")
+        data2 = datetime.strptime(array[1], "%d de %B de %Y")
 
-    #Formata em datetime
-    data1 = datetime.strptime(array[0], "%d de %B de %Y")
-    data2 = datetime.strptime(array[1], "%d de %B de %Y")
+        #Como é pedido o dia entre, o menos um remove o dia pertencente as datas passadas no input que estava sendo incluido.
+        numero_dias = abs((data2 - data1).days) -1
 
-    #Como é pedido o dia entre, o menos um remove o dia pertencente as datas passadas no input que estava sendo incluido.
-    numero_dias = abs((data2 - data1).days) - 1
+        print("\nO número de dias entre essas datas é: ", numero_dias)
 
-    print(numero_dias)
+    except ValueError:
+        print("\n\n\n\n", "#"*10, "ERRO!", "#"*10, )
+        print("O formato de datas não está correto! Um exemplo de Formato correto é:\n 18 de Setembro de 2023 - 23 de Agosto de 2023", end="\n")
 
 
 def calculo_arquivo(file_name):
