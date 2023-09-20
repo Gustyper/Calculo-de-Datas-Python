@@ -65,6 +65,10 @@ def calculo_arquivo(file_name):
     Teste primeira maior que segunda
     >>> calculo_arquivo("teste2.txt")
     Diferença de dias: 37
+
+    Teste resultado zero
+    >>> calculo_arquivo("teste3.txt")
+    Diferença de dias: 0
     """
     try:
         dados = pd.read_csv(file_name, sep=" - ", header=None, names=["Coluna1", "Coluna2"], engine='python')
@@ -77,7 +81,9 @@ def calculo_arquivo(file_name):
             segunda_data = datetime.strptime(segunda_data, '%d de %B de %Y')
 
             #Como é pedido o dia entre, o menos um remove o dia pertencente as datas passadas no input que estava sendo incluido.
-            quantidade_dias = abs((segunda_data - primeira_data).days) - 1
+            quantidade_dias = abs((segunda_data - primeira_data).days)
+            if quantidade_dias != 0:
+                quantidade_dias -= 1
 
             print("Diferença de dias:",quantidade_dias)
         else:
@@ -86,9 +92,9 @@ def calculo_arquivo(file_name):
     except FileNotFoundError:
         print(f"Arquivo {file_name} não encontrado.")
     except pd.errors.EmptyDataError:
-        print("O arquivo está vazio ou não contém dados válidos.")
+        print("O arquivo está vazio.")
     except ValueError:
-        print("O arquivo está vazio ou não contém dados válidos.")
+        print("O arquivo não contém dados válidos.")
 
 if __name__ == "__main__":
     doctest.testmod(verbose=True)
