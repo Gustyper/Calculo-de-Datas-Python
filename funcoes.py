@@ -20,11 +20,11 @@ def calculo_digita(data):
 
     Teste 1
     >>> calculo_digita("23 de Agosto de 2023 - 18 de Setembro de 2023")
-    26
+    25
 
     Teste 2
     >>> calculo_digita("18 de Setembro de 2023 - 23 de Agosto de 2023")
-    26
+    25
     """
     
     #Separa as datas
@@ -35,10 +35,10 @@ def calculo_digita(data):
         data1 = datetime.strptime(array[0], "%d de %B de %Y")
         data2 = datetime.strptime(array[1], "%d de %B de %Y")
 
-        numero_dias = abs((data2 - data1).days)
+        #Como é pedido o dia entre, o menos um remove o dia pertencente as datas passadas no input que estava sendo incluido.
+        numero_dias = abs((data2 - data1).days) -1
 
         print("\nO número de dias entre essas datas é: ", numero_dias)
-        
 
     except ValueError:
         print("\n\n\n\n", "#"*10, "ERRO!", "#"*10, )
@@ -58,10 +58,13 @@ def calculo_arquivo(file_name):
     int
         Retorna a quantidade de dias entre as datas.
 
-    Teste 1
-    >>> calculo_arquivo("teste.txt")
-    38
+    Teste segunda maior que primeira
+    >>> calculo_arquivo("teste1.txt")
+    Diferença de dias: 37
 
+    Teste primeira maior que segunda
+    >>> calculo_arquivo("teste2.txt")
+    Diferença de dias: 37
     """
     try:
         dados = pd.read_csv(file_name, sep=" - ", header=None, names=["Coluna1", "Coluna2"], engine='python')
@@ -73,9 +76,10 @@ def calculo_arquivo(file_name):
             primeira_data = datetime.strptime(primeira_data, '%d de %B de %Y')
             segunda_data = datetime.strptime(segunda_data, '%d de %B de %Y')
 
-            quantidade_dias = abs((segunda_data - primeira_data).days)
+            #Como é pedido o dia entre, o menos um remove o dia pertencente as datas passadas no input que estava sendo incluido.
+            quantidade_dias = abs((segunda_data - primeira_data).days) - 1
 
-            print(quantidade_dias)
+            print("Diferença de dias:",quantidade_dias)
         else:
             print("O arquivo está vazio!")
 
