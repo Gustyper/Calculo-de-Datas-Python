@@ -4,10 +4,11 @@ opcao = 0
 
 "23 de Agosto de 2023 - 18 de Setembro de 2023"
 
+print("\nCalcule a quantidade de dias entre duas datas!")
+
 while opcao != 3:
 
-    print("\n################################################")
-    print("MENU")
+    print("\n----------------MENU----------------")
     print("1 - Digite as datas")
     print("2 - Digite o nome de um arquivo")
     print("3 - Sair\n")
